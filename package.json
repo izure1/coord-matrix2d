@@ -1,0 +1,23 @@
+{
+  "name": "coord-matrix2d",
+  "version": "1.0.0-beta.0",
+  "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist/**/*.ts",
+    "dist/**/*.js"
+  ],
+  "scripts": {
+    "build": "node build/base.js && tsc --emitDeclarationOnly"
+  },
+  "keywords": [
+    "math",
+    "matrix"
+  ],
+  "author": "izure <admin@izure.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.14.53"
+  }
+}
