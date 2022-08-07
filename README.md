@@ -1,5 +1,7 @@
 # coord-matrix2d
 
+The two-dimensional matrix resembling a Cartesian coordinate system
+
 ## How to use
 
 ```typescript
