@@ -122,7 +122,7 @@ export class Matrix<T> {
    * @param b The matrix.
    */
    static IsSameSize(a: Matrix<any>, b: Matrix<any>): boolean {
-    return a.row === b.row && a.col === b.row
+    return a.row === b.row && a.col === b.col
   }
 
   /**

@@ -1,6 +1,6 @@
 {
   "name": "coord-matrix2d",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -17,6 +17,11 @@
     "matrix"
   ],
   "author": "izure <admin@izure.org>",
+  "homepage": "https://github.com/izure1/coord-matrix2d",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izure1/coord-matrix2d.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "esbuild": "^0.14.53"

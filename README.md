@@ -40,3 +40,21 @@ localMatrix
 //    18, 19, 20
 // ]
 ```
+
+## Install
+
+```bash
+npm i coord-matrix2d
+```
+
+or
+
+```html
+<script type="module">
+  import { Matrix } from 'https://cdn.jsdelivr.net/npm/coord-matrix2d@1.x.x/dist/esm/index.js'
+</script>
+```
+
+## License
+
+MIT license
