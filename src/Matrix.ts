@@ -328,11 +328,11 @@ export class Matrix<T> {
   }
 
   /**
-   * Clear matrix elements.
-   * @param fill The fill element.
+   * Fill matrix with a element.
+   * @param element The fill element.
    */
-  clear(fill: T): this {
-    this.elements.fill(fill)
+  fill(element: T): this {
+    this.elements.fill(element)
     return this
   }
 
