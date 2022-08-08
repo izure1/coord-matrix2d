@@ -41,6 +41,11 @@ export class Matrix<T> {
     return this.__elements
   }
 
+  /** Returns a clone of matrix. */
+  get clone(): Matrix<T> {
+    return Matrix.Create(this.row, this.col, [...this.elements])
+  }
+
   /**
    * Creates a new matrix instance with same row and col size.
    * @param row The row size of new matrix.

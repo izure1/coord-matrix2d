@@ -1,6 +1,6 @@
 {
   "name": "coord-matrix2d",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
