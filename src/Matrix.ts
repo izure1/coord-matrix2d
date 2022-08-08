@@ -96,6 +96,33 @@ export class Matrix<T> {
   }
 
   /**
+   * Returns multiplied result matrix between both matrix. It will returns `a * b`
+   * WARNING! This method is not product matrix. It's just a multiply each element of matrix.
+   * If you want to product matrix, use `Prod` method.
+   * @param a The matrix.
+   * @param b The matrix.
+   */
+  static Mul(a: Matrix<number>, b: Matrix<number>): Matrix<number> {
+    if (!Matrix.IsSameSize(a, b)) {
+      throw Matrix.ERR_SIZE_NOT_MATCH()
+    }
+    return new Matrix(a.row, a.col, a.elements.map((av, i) => av * b.elements[i]))
+  }
+
+  /**
+   * Returns divided result matrix between both matrix. It will returns `a / b`
+   * It's just a divide each element of matrix.
+   * @param a The matrix.
+   * @param b The matrix.
+   */
+  static Div(a: Matrix<number>, b: Matrix<number>): Matrix<number> {
+    if (!Matrix.IsSameSize(a, b)) {
+      throw Matrix.ERR_SIZE_NOT_MATCH()
+    }
+    return new Matrix(a.row, a.col, a.elements.map((av, i) => av / b.elements[i]))
+  }
+
+  /**
    * Returns multiplied result matrix between both matrix.
    * The matrix product must be same `a.col` and `b.row` size. If not, it will throw an error.
    * @param a The first matrix.
@@ -107,13 +134,6 @@ export class Matrix<T> {
       throw Matrix.ERR_MULTIPLY_SIZE_NOT_MATCH()
     }
     const matrix = new Matrix<number>(a.row, b.col, new Array(a.row * b.col).fill(0))
-    // for (let i = 1; i < a.col; i++) {
-    //   const aElement = a.getRowElements(i)
-    //   const bElement = b.getColElements(i)
-    //   const result = aElement.map((av, j) => av * bElement[j])
-    //   matrix.setElement()
-    //   matrix.elements.push(...result)
-    // }
     matrix.elements.length = 0
     for (let i = 0; i < a.row; i++) {
       const aElement = a.getRowElements(i)
@@ -131,7 +151,7 @@ export class Matrix<T> {
    * @param a The matrix.
    * @param b The matrix.
    */
-   static IsSameSize(a: Matrix<any>, b: Matrix<any>): boolean {
+  static IsSameSize(a: Matrix<any>, b: Matrix<any>): boolean {
     return a.row === b.row && a.col === b.col
   }
 
