@@ -4,8 +4,12 @@ export class Matrix<T> {
   private readonly __size: number
   private readonly __elements: T[] = []
 
-  constructor(row: number, col: number, elements: T[]) {
+  constructor(row: number, col: number, elements: T|T[]) {
     const size = row * col
+
+    if (!Array.isArray(elements)) {
+      elements = new Array(row * col).fill(elements)
+    }
 
     if (size !== elements.length) {
       throw new Error(`The size of element expected ${size}, but got a ${elements.length}.`)
@@ -41,10 +45,10 @@ export class Matrix<T> {
    * Creates a new matrix instance with same row and col size.
    * @param row The row size of new matrix.
    * @param col The column size of new matrix.
-   * @param elements The elements of new matrix.
+   * @param elements The elements of new matrix. If `elements` argument is not array, it will be filled with `elements` argument.
    * @returns The new matrix instance.
    */
-  static Create<T>(row: number, col: number, elements: T[]): Matrix<T> {
+  static Create<T>(row: number, col: number, elements: T|T[]): Matrix<T> {
     return new Matrix(row, col, elements)
   }
 
