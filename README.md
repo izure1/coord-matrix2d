@@ -1,6 +1,8 @@
 # coord-matrix2d
 
-The two-dimensional matrix resembling a Cartesian coordinate system
+[![Hit](https://data.jsdelivr.com/v1/package/npm/coord-matrix2d/badge)](https://www.jsdelivr.com/package/npm/coord-matrix2d)
+
+The two-dimensional matrix resembling a Cartesian coordinate system.
 
 ## How to use
 

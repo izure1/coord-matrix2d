@@ -106,12 +106,22 @@ export class Matrix<T> {
     if (a.col !== b.row) {
       throw Matrix.ERR_MULTIPLY_SIZE_NOT_MATCH()
     }
-    const matrix = new Matrix<number>(a.row, b.col, [])
-    for (let i = 1; i < a.col; i++) {
+    const matrix = new Matrix<number>(a.row, b.col, new Array(a.row * b.col).fill(0))
+    // for (let i = 1; i < a.col; i++) {
+    //   const aElement = a.getRowElements(i)
+    //   const bElement = b.getColElements(i)
+    //   const result = aElement.map((av, j) => av * bElement[j])
+    //   matrix.setElement()
+    //   matrix.elements.push(...result)
+    // }
+    matrix.elements.length = 0
+    for (let i = 0; i < a.row; i++) {
       const aElement = a.getRowElements(i)
-      const bElement = b.getColElements(i)
-      const result = aElement.map((av, j) => av * bElement[j])
-      matrix.elements.push(...result)
+      for (let j = 0; j < b.col; j++) {
+        const bElement = b.getColElements(j)
+        const result = aElement.map((av, k) => av * bElement[k])
+        matrix.elements.push(result.reduce((acc, cur) => acc + cur, 0))
+      }
     }
     return matrix
   }
