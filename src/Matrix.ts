@@ -345,6 +345,11 @@ export class Matrix<T> {
 
   /**
    * Fill matrix with a element.
+   * It is useful with `Matrix.Add`, `Matrix.Sub`, `Matrix.Mul`, `Matrix.Div` like methods.
+   * ```
+   * const mat = Matrix.Create(3, 3, [1,2,3,4,5,6,7,8,9])
+   * const result = Matrix.Mul(mat, mat.clone.fill(3))
+   * ```
    * @param element The fill element.
    */
   fill(element: T): this {
