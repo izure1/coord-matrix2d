@@ -1,8 +1,12 @@
 export class Matrix<T> {
-  private readonly __row: number
-  private readonly __col: number
-  private readonly __size: number
-  private readonly __elements: T[] = []
+  /** The row size of matrix */
+  readonly row: number
+  /** The column size of matrix. */
+  readonly col: number
+  /** The elements length of matrix. */
+  readonly size: number
+  /** All of matrix's elements. */
+  readonly elements: T[]
 
   constructor(row: number, col: number, elements: T|T[]) {
     const size = row * col
@@ -15,30 +19,10 @@ export class Matrix<T> {
       throw new Error(`The size of element expected ${size}, but got a ${elements.length}.`)
     }
 
-    this.__elements = elements
-    this.__row = row
-    this.__col = col
-    this.__size = size
-  }
-
-  /** The row size of matrix */
-  get row(): number {
-    return this.__row
-  }
-
-  /** The column size of matrix. */
-  get col(): number {
-    return this.__col
-  }
-
-  /** The elements length of matrix. */
-  get size(): number {
-    return this.__size
-  }
-
-  /** All of matrix's elements. */
-  get elements(): T[] {
-    return this.__elements
+    this.elements = elements
+    this.size = size
+    this.row = row
+    this.col = col
   }
 
   /** Returns a clone of matrix. */
