@@ -312,6 +312,22 @@ export class Matrix<T> {
   }
 
   /**
+   * Returns whether the positions of rows and columns are within the range of the current matrix.
+   * If the position is within the range of the matrix, it returns `true`. Otherwise, it returns `false`.
+   * You can use this method to get element safely.
+   * ```
+   * if (matrix.reachable(rowIndex, colIndex)) {
+   *  const element = matrix.getElement(rowIndex, colIndex)
+   * }
+   * ```
+   * @param rowIndex The row index of matrix.
+   * @param colIndex The column index of matrix.
+   */
+  reachable(rowIndex: number, colIndex: number): boolean {
+    return !Matrix.OutOfRange(rowIndex, this.row-1) && !Matrix.OutOfRange(colIndex, this.col-1)
+  }
+
+  /**
    * Returns element what you find in point of coordinates in matrix.
    * @param rowIndex The row index of matrix.
    * @param colIndex The column index of matrix.
