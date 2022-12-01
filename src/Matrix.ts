@@ -140,6 +140,20 @@ export class Matrix<T> {
   }
 
   /**
+   * Calculates the inner of the two matrices to return the scalar value.
+   * @param a The first matrix.
+   * @param b The second matrix.
+   * @returns The scalar value.
+   */
+  static Dot(a: Matrix<number>, b: Matrix<number>): number {
+    if (a.col !== b.row) {
+      throw Matrix.ERR_MULTIPLY_SIZE_NOT_MATCH()
+    }
+    const matrix = Matrix.Mul(a, b)
+    return matrix.elements.reduce((acc, current) => acc + current, 0)
+  }
+
+  /**
    * Returns whether the matrix has same size. It calculates with `row` and `col` properties.
    * @param a The matrix.
    * @param b The matrix.
