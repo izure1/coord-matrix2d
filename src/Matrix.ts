@@ -3,7 +3,7 @@ export class Matrix<T> {
   readonly row: number
   /** The column size of matrix. */
   readonly col: number
-  /** The elements length of matrix. */
+  /** The elements length of matrix. It's NOT magnitude of matrix. */
   readonly size: number
   /** All of matrix's elements. */
   readonly elements: T[]
@@ -28,6 +28,12 @@ export class Matrix<T> {
   /** Returns a clone of matrix. */
   get clone(): Matrix<T> {
     return Matrix.Create(this.row, this.col, [...this.elements])
+  }
+
+  /** Returns a length of matrix. */
+  get magnitude(): number {
+    const total = this.elements.reduce((acc, current) => acc + Math.pow(current as unknown as number, 2), 0)
+    return Math.sqrt(total)
   }
 
   /**

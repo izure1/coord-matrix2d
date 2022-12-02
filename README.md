@@ -207,6 +207,10 @@ Returns all elements in matrix as 2d-array data type.
 
 Returns a clone of matrix.
 
+### `(getter) magnitude: number`
+
+Returns a length of matrix.
+
 ### `row: number`
 
 The row size of matrix
@@ -217,7 +221,7 @@ The column size of matrix.
 
 ### `size: number`
 
-The elements length of matrix.
+The elements length of matrix. It's NOT magnitude of matrix.
 
 ### `elements: T[]`
 
