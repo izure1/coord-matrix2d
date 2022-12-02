@@ -152,9 +152,6 @@ export class Matrix<T> {
    * @returns The scalar value.
    */
   static Dot(a: Matrix<number>, b: Matrix<number>): number {
-    if (a.col !== b.row) {
-      throw Matrix.ERR_MULTIPLY_SIZE_NOT_MATCH()
-    }
     const matrix = Matrix.Mul(a, b)
     return matrix.elements.reduce((acc, current) => acc + current, 0)
   }
