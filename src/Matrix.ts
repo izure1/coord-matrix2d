@@ -1,5 +1,5 @@
 export class Matrix<T> {
-  /** The row size of matrix */
+  /** The row size of matrix. */
   readonly row: number
   /** The column size of matrix. */
   readonly col: number
@@ -65,7 +65,7 @@ export class Matrix<T> {
   }
 
   /**
-   * Returns added result matrix between both matrix. It will returns `a + b`
+   * Returns added result matrix between both matrix. It will returns `a + b`.
    * @param a The matrix.
    * @param b The matrix.
    */
@@ -77,7 +77,7 @@ export class Matrix<T> {
   }
 
   /**
-   * Returns subtracted result matrix between both matrix. It will returns `a - b`
+   * Returns subtracted result matrix between both matrix. It will returns `a - b`.
    * @param a The matrix.
    * @param b The matrix.
    */
@@ -89,7 +89,7 @@ export class Matrix<T> {
   }
 
   /**
-   * Returns multiplied result matrix between both matrix. It will returns `a * b`
+   * Returns multiplied result matrix between both matrix. It will returns `a * b`.
    * WARNING! This method is not product matrix. It's just a multiply each element of matrix.
    * If you want to product matrix, use `Prod` method.
    * @param a The matrix.
@@ -103,7 +103,7 @@ export class Matrix<T> {
   }
 
   /**
-   * Returns divided result matrix between both matrix. It will returns `a / b`
+   * Returns divided result matrix between both matrix. It will returns `a / b`.
    * It's just a divide each element of matrix.
    * @param a The matrix.
    * @param b The matrix.
@@ -140,7 +140,7 @@ export class Matrix<T> {
   }
 
   /**
-   * Calculates the inner of the two matrices to return the scalar value.
+   * Returns the scalar product results of two matrices.
    * @param a The first matrix.
    * @param b The second matrix.
    * @returns The scalar value.
