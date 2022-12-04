@@ -115,6 +115,11 @@ The matrix product must be same `a.col` and `b.row` size. If not, it will throw 
 
 Returns the scalar product results of two matrices.
 
+### `Matrix.CosSim`(a: `Matrix<number>`, b: `Matrix<number>`): `number`
+
+Calculate and return cosine similarity between the two matrices.
+This does not distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, then compare the similarity.
+
 ### `Matrix.IsSameSize`(a: `Matrix<any>`, b: `Matrix<any>`): `boolean`
 
 Returns whether the matrix has same size. It calculates with `row` and `col` properties.
@@ -209,7 +214,7 @@ Returns a clone of matrix.
 
 ### `(getter) magnitude: number`
 
-Returns a length of matrix.
+Returns a length of matrix. This follows the calculation of Euclidean norm.
 
 ### `row: number`
 

@@ -30,7 +30,7 @@ export class Matrix<T> {
     return Matrix.Create(this.row, this.col, [...this.elements])
   }
 
-  /** Returns a length of matrix. */
+  /** Returns a length of matrix. This follows the calculation of Euclidean norm. */
   get magnitude(): number {
     const total = this.elements.reduce((acc, current) => acc + Math.pow(current as unknown as number, 2), 0)
     return Math.sqrt(total)
@@ -158,10 +158,10 @@ export class Matrix<T> {
 
   /**
    * Calculate and return cosine similarity between the two matrices.
-   * This does not distinguish between the rows and columns of the matrix. 행렬의 요소를 이용하여 벡터를 생성한 후 비교합니다.
-   * @param a 
-   * @param b 
-   * @returns 
+   * This does not distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, then compare the similarity.
+   * @param a The first matrix.
+   * @param b The second matrix.
+   * @returns The similarity value of matrix as number `-1` to `1`. If not similar, `-1`, `1` if it is similar.
    */
   static CosSim(a: Matrix<number>, b: Matrix<number>): number {
     const t = Matrix.Dot(a, b)
