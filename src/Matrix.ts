@@ -152,8 +152,21 @@ export class Matrix<T> {
    * @returns The scalar value.
    */
   static Dot(a: Matrix<number>, b: Matrix<number>): number {
-    const matrix = Matrix.Mul(a, b)
+    const matrix = Matrix.Prod(a, b)
     return matrix.elements.reduce((acc, current) => acc + current, 0)
+  }
+
+  /**
+   * Calculate and return cosine similarity between the two matrices.
+   * This does not distinguish between the rows and columns of the matrix. 행렬의 요소를 이용하여 벡터를 생성한 후 비교합니다.
+   * @param a 
+   * @param b 
+   * @returns 
+   */
+  static CosSim(a: Matrix<number>, b: Matrix<number>): number {
+    const t = Matrix.Dot(a, b)
+    const d = a.magnitude * b.magnitude
+    return t / d
   }
 
   /**
