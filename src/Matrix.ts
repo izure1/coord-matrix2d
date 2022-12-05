@@ -147,7 +147,7 @@ export class Matrix<T> {
 
   /**
    * Returns the scalar product results of two matrices.
-   * WARNING! This does not distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, Returns the value that adds all the elements.
+   * WARNING! This does NOT distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, Returns the value that adds all the elements.
    * @param a The first matrix.
    * @param b The second matrix.
    * @returns The scalar value.
@@ -159,7 +159,7 @@ export class Matrix<T> {
 
   /**
    * Calculate and return cosine similarity between the two matrices.
-   * WARNING! This does not distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, then compare the similarity.
+   * WARNING! This does NOT distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, then compare the similarity.
    * @param a The first matrix.
    * @param b The second matrix.
    * @returns The similarity value of matrix as number `-1` to `1`. If not similar, `-1`, `1` if it is similar.

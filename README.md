@@ -111,14 +111,17 @@ It's just a divide each element of matrix.
 Returns multiplied result matrix between both matrix.
 The matrix product must be same `a.col` and `b.row` size. If not, it will throw an error.
 
-### `Matrix.Dot`(a: `Matrix<number>`, b: `Matrix<number>`): `number`
+### `Matrix.VecDot`(a: `Matrix<number>`, b: `Matrix<number>`): `number`
 
 Returns the scalar product results of two matrices.
 
-### `Matrix.CosSim`(a: `Matrix<number>`, b: `Matrix<number>`): `number`
+WARNING! This does NOT distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, Returns the value that adds all the elements.
+
+### `Matrix.VecCosSim`(a: `Matrix<number>`, b: `Matrix<number>`): `number`
 
 Calculate and return cosine similarity between the two matrices.
-This does not distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, then compare the similarity.
+
+WARNING! This does NOT distinguish between the rows and columns of the matrix. List all the elements of the matrix and convert it to a vector, then compare the similarity.
 
 ### `Matrix.IsSameSize`(a: `Matrix<any>`, b: `Matrix<any>`): `boolean`
 
