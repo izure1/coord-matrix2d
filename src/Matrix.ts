@@ -134,9 +134,9 @@ export class Matrix<T> {
     }
     const matrix = new Matrix<number>(a.row, b.col, new Array(a.row * b.col).fill(0))
     matrix.elements.length = 0
-    for (let i = 0; i < a.row; i++) {
+    for (let i = 1, len_i = a.row+1; i < len_i; i++) {
       const aElement = a.getRowElements(i)
-      for (let j = 0; j < b.col; j++) {
+      for (let j = 1, len_j = b.col+1; j < len_j; j++) {
         const bElement = b.getColElements(j)
         const result = aElement.map((av, k) => av * bElement[k])
         matrix.elements.push(result.reduce((acc, cur) => acc + cur, 0))
@@ -224,18 +224,18 @@ export class Matrix<T> {
 
     const rowRadius = (row-1)/2
     const colRadius = (col-1)/2
-    const startRowIndex = (rowIndex-1) - rowRadius
-    const startColIndex = (colIndex-1) - colRadius
+    const startRowIndex = rowIndex - rowRadius
+    const startColIndex = colIndex - colRadius
 
     for (let y = 0, i = 0; y < row; y++) {
       const rowOffset = startRowIndex + y
-      if (Matrix.OutOfRange(rowOffset, source.row-1)) {
+      if (Matrix.OutOfRange(rowOffset, source.row, 1)) {
         i+=col
         continue
       }
       for (let x = 0; x < col; x++, i++) {
         const colOffset = startColIndex + x
-        if (Matrix.OutOfRange(colOffset, source.col-1)) {
+        if (Matrix.OutOfRange(colOffset, source.col, 1)) {
           continue
         }
         const element = source.getElement(rowOffset, colOffset)
@@ -251,10 +251,10 @@ export class Matrix<T> {
    * @param index The matrix index of row.
    */
   getRowElements(index: number): T[] {
-    if (Matrix.OutOfRange(index, this.row-1)) {
-      throw Matrix.ERR_EXCEED_RANGE(0, this.row-1, index)
+    if (Matrix.OutOfRange(index, this.row, 1)) {
+      throw Matrix.ERR_EXCEED_RANGE(1, this.row, index)
     }
-    const start = index * this.col
+    const start = (index-1) * this.col
     const end = start + this.col
     return this.elements.slice(start, end)
   }
@@ -264,14 +264,15 @@ export class Matrix<T> {
    * @param index The matrix index of column.
    */
   getColElements(index: number): T[] {
-    if (Matrix.OutOfRange(index, this.col-1)) {
-      throw Matrix.ERR_EXCEED_RANGE(0, this.col-1, index)
+    if (Matrix.OutOfRange(index, this.col, 1)) {
+      throw Matrix.ERR_EXCEED_RANGE(1, this.col, index)
     }
     const elements: T[] = []
-    const start = index
-    const step = this.col
-    for (let i = start, len = this.elements.length; i < len; i += step) {
-      const t = this.elements[i]
+    const start = index-1
+    const step  = this.col
+    for (let i = 0; i < this.row; i++) {
+      const offset = start + (i*step)
+      const t = this.elements[offset]
       elements.push(t)
     }
     return elements
@@ -284,13 +285,15 @@ export class Matrix<T> {
    * @returns 
    */
   getIndex(rowIndex: number, colIndex: number): number {
-    if (Matrix.OutOfRange(rowIndex, this.row-1)) {
-      throw Matrix.ERR_EXCEED_RANGE(0, this.row-1, rowIndex)
+    if (Matrix.OutOfRange(rowIndex, this.row, 1)) {
+      throw Matrix.ERR_EXCEED_RANGE(1, this.row, rowIndex)
     }
-    if (Matrix.OutOfRange(colIndex, this.col-1)) {
-      throw Matrix.ERR_EXCEED_RANGE(0, this.col-1, colIndex)
+    if (Matrix.OutOfRange(colIndex, this.col, 1)) {
+      throw Matrix.ERR_EXCEED_RANGE(1, this.col, colIndex)
     }
-    return (rowIndex * this.col) + colIndex
+    const r = rowIndex-1
+    const c = colIndex-1
+    return (r * this.col) + c
   }
 
   /**
@@ -323,7 +326,7 @@ export class Matrix<T> {
     if (Matrix.OutOfRange(elOffset, this.elements.length-1)) {
       throw Matrix.ERR_EXCEED_RANGE(0, this.elements.length-1, elOffset)
     }
-    return elOffset % this.col
+    return (elOffset % this.col) + 1
   }
 
   /**
@@ -339,7 +342,7 @@ export class Matrix<T> {
    * @param colIndex The column index of matrix.
    */
   reachable(rowIndex: number, colIndex: number): boolean {
-    return !Matrix.OutOfRange(rowIndex, this.row-1) && !Matrix.OutOfRange(colIndex, this.col-1)
+    return !Matrix.OutOfRange(rowIndex, this.row, 1) && !Matrix.OutOfRange(colIndex, this.col, 1)
   }
 
   /**
@@ -348,11 +351,11 @@ export class Matrix<T> {
    * @param colIndex The column index of matrix.
    */
   getElement(rowIndex: number, colIndex: number): T {
-    if (Matrix.OutOfRange(rowIndex, this.row-1)) {
-      throw Matrix.ERR_EXCEED_RANGE(0, this.row-1, rowIndex)
+    if (Matrix.OutOfRange(rowIndex, this.row, 1)) {
+      throw Matrix.ERR_EXCEED_RANGE(1, this.row, rowIndex)
     }
-    if (Matrix.OutOfRange(colIndex, this.col-1)) {
-      throw Matrix.ERR_EXCEED_RANGE(0, this.col-1, colIndex)
+    if (Matrix.OutOfRange(colIndex, this.col, 1)) {
+      throw Matrix.ERR_EXCEED_RANGE(1, this.col, colIndex)
     }
     const index = this.getIndex(rowIndex, colIndex)
     return this.elements[index]
