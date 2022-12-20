@@ -211,7 +211,7 @@ export class Matrix<T> {
    * @param col The matrix column size of result. Default value is `3`
    * @param fill Fill element if neighbor elements are out of range.
    */
-  static GetLocalMatrix<T>(source: Matrix<T>, rowIndex: number, colIndex: number, row = 3, col = 3, fill: any = null): Matrix<T> {
+  static GetLocalMatrix<T, U extends T|null>(source: Matrix<T>, rowIndex: number, colIndex: number, row = 3, col = 3, fill?: U): Matrix<T|U> {
     if (
       !(row%2) || !(col%2) ||
       row < 0 || col < 0
@@ -220,12 +220,12 @@ export class Matrix<T> {
     }
 
     const size = row * col
-    const mat = new Matrix(row, col, new Array(size).fill(fill))
+    const mat = new Matrix(row, col, new Array(size).fill(fill ?? null))
 
     const rowRadius = (row-1)/2
     const colRadius = (col-1)/2
-    const startRowIndex = rowIndex - rowRadius
-    const startColIndex = colIndex - colRadius
+    const startRowIndex = (rowIndex-1) - rowRadius
+    const startColIndex = (colIndex-1) - colRadius
 
     for (let y = 0, i = 0; y < row; y++) {
       const rowOffset = startRowIndex + y
