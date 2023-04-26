@@ -79,8 +79,8 @@ describe('Matrix instance method', () => {
   })
 
   test('getRowIndex', () => {
-    expect(vecA13.getRowIndex(1)).toBe(0)
-    expect(matA33.getRowIndex(3)).toBe(1)
+    expect(vecA13.getRowIndex(1)).toBe(1)
+    expect(matA33.getRowIndex(3)).toBe(2)
   })
 
   test('getColIndex', () => {

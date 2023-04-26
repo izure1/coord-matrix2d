@@ -315,7 +315,7 @@ export class Matrix<T> {
     if (Matrix.OutOfRange(elOffset, this.elements.length-1)) {
       throw Matrix.ERR_EXCEED_RANGE(0, this.elements.length-1, elOffset)
     }
-    return Math.floor(elOffset / this.col)
+    return Math.floor(elOffset / this.col) + 1
   }
 
   /**
