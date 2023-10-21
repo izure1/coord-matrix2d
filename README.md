@@ -1,6 +1,7 @@
 # coord-matrix2d
 
 [![Hit](https://data.jsdelivr.com/v1/package/npm/coord-matrix2d/badge)](https://www.jsdelivr.com/package/npm/coord-matrix2d)
+![Github node.js workflow](https://github.com/izure1/coord-matrix2d/actions/workflows/node.js.yml/badge.svg)
 
 The two-dimensional matrix resembling a Cartesian coordinate system.
 
