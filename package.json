@@ -2,15 +2,22 @@
   "name": "coord-matrix2d",
   "version": "1.6.0",
   "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "typings": "dist/src/index.d.ts",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "typings": "dist/typings/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/typings/index.d.ts"
+    }
+  },
   "files": [
     "dist/**/*.ts",
     "dist/**/*.js"
   ],
   "scripts": {
-    "build": "node build/base.js && tsc --emitDeclarationOnly",
+    "build": "node build/base.js && tsc",
     "test": "jest"
   },
   "keywords": [
