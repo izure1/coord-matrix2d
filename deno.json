@@ -1,6 +1,6 @@
 {
   "name": "@izure/coord-matrix2d",
-  "version": "0.0.1",
+  "version": "1.6.2",
   "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
   "author": "izure1 <admin@izure.org>",
   "license": "MIT",
