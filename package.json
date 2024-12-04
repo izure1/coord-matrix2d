@@ -1,19 +1,19 @@
 {
   "name": "coord-matrix2d",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.mjs",
-  "typings": "dist/typings/index.d.ts",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.cjs",
-      "types": "./dist/typings/index.d.ts"
+      "require": "./dist/cjs/index.cjs"
     }
   },
   "files": [
-    "dist/**/*"
+    "./dist/**/*"
   ],
   "scripts": {
     "build": "node build/base.js && tsc",
@@ -31,10 +31,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "esbuild": "^0.20.2",
+    "@types/jest": "^29.5.14",
+    "esbuild": "^0.24.0",
     "jest": "^29.7.0",
-    "ts-jest": "^29.1.2",
-    "typescript": "^5.4.5"
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
   }
 }

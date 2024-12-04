@@ -1,4 +1,4 @@
-import { Matrix } from '../src/Matrix'
+import { Matrix } from 'coord-matrix2d'
 
 const vecA13 = Matrix.Create(1, 3, [1, 2, 3])
 const vecB13 = Matrix.Create(1, 3, [4, 5, 6])

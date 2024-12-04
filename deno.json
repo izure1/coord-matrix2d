@@ -1,0 +1,21 @@
+{
+  "name": "@izure/coord-matrix2d",
+  "version": "0.0.1",
+  "description": "The two-dimensional matrix resembling a Cartesian coordinate system",
+  "author": "izure1 <admin@izure.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izure1/coord-matrix2d.git"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts"
+    ]
+  }
+}
